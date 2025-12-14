@@ -1,0 +1,16 @@
+# https://moonrepo.dev/docs/config/workspace
+$schema: './cache/schemas/workspace.json'
+
+# extends: './shared/workspace.yml'
+
+projects:
+  - 'garage-web-client'
+vcs:
+  manager: 'git'
+  defaultBranch: 'main'
+
+  hooks:
+    pre-commit:
+      - 'moon run :lint --affected'
+      - 'git status'
+  syncHooks: true
