@@ -1,18 +1,31 @@
-import { Title, Text, Button, Container, Stack } from '@mantine/core';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AppLayout } from "./components/Layout/AppLayout";
+import { WelcomePage } from "./pages/Welcome/WelcomePage";
+import { ManageClustersPage } from "./pages/Cluster/ManageClustersPage";
+import { ClusterHealthPage } from "./pages/Cluster/Health/ClusterHealthPage";
+
+// function App() {
+//   const activeClusterId = useClusterStore((state) => state.activeClusterId);
+
+//   return (
+//     <Routes>
 
 function App() {
   return (
-    <Container p="md">
-      <Stack align="center" justify="center" h="100vh">
-        <Title order={1}>Garage Web Client</Title>
-        <Text size="lg" c="dimmed">
-          Initialized with Vite, React, and Mantine UI
-        </Text>
-        <Button variant="filled" color="blue" onClick={() => console.log('Clicked')}>
-          Get Started
-        </Button>
-      </Stack>
-    </Container>
+    <Routes>
+      <Route path="/" element={<WelcomePage />} />
+      <Route path="/manage-clusters" element={<ManageClustersPage />} />
+
+      {/* Protected Cluster Routes */}
+      <Route path="/cluster/:clusterId" element={<AppLayout />}>
+        <Route path="health" element={<ClusterHealthPage />} />
+        {/* Default redirect to health for now */}
+        <Route index element={<Navigate to="health" replace />} />
+      </Route>
+
+      {/* Catch all redirect to Welcome */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
 

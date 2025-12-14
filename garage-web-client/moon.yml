@@ -1,46 +1,46 @@
-language: 'typescript'
+language: "typescript"
 
 tasks:
   init:
-    command: 'bun install'
+    command: "bun install"
     inputs:
-      - 'package.json'
-      - 'bun.lock'
+      - "package.json"
+      - "bun.lock"
     outputs:
-      - 'node_modules'
+      - "node_modules"
 
   dev:
-    command: 'bun run dev'
+    command: "bun run dev"
     deps:
-      - 'init'
+      - "init"
     local: true
 
   lint:
-    command: 'bun run lint'
+    command: "bun run lint"
     deps:
-      - 'format'
-      - 'typecheck'
+      - "format"
+      - "typecheck"
     inputs:
-      - 'src/**/*'
-      - 'eslint.config.js'
+      - "src/**/*"
+      - "eslint.config.js"
 
   format:
-    command: 'bun run format'
+    command: "bun run format"
     inputs:
-      - 'src/**/*'
-      - '.prettierrc'
-      - '.prettierignore'
+      - "src/**/*"
+      - ".prettierrc"
+      - ".prettierignore"
 
   typecheck:
-    command: 'bun run typecheck'
+    command: "bun run typecheck"
     inputs:
-      - 'src/**/*'
-      - 'tsconfig.json'
-      - 'tsconfig.*.json'
+      - "src/**/*"
+      - "tsconfig.json"
+      - "tsconfig.*.json"
 
   build:
-    command: 'bun run build'
+    command: "bun run build"
     inputs:
-      - 'src/**/*'
+      - "src/**/*"
     outputs:
-      - 'dist'
+      - "dist"

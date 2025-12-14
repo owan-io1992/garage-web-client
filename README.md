@@ -45,6 +45,9 @@ export AWS_DEFAULT_REGION='garage'
 export AWS_ENDPOINT_URL='http://localhost:3900'
 
 aws s3 ls s3://dev-bucket
+
+# create token
+docker compose exec garaged /garage admin-token create
 ```
 
 ## start garage-web-client
