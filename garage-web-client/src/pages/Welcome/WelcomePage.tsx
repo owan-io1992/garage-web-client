@@ -54,7 +54,7 @@ export function WelcomePage() {
                 radius="md"
                 style={{ cursor: "pointer", transition: "border-color 0.2s" }}
                 onClick={() =>
-                  navigate(`/cluster/health?clusterId=${cluster.id}`)
+                  navigate(`/cluster/status?clusterId=${cluster.id}`)
                 }
                 className="cluster-card"
               >
