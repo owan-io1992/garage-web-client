@@ -21,7 +21,7 @@ cd garage
 # initialize
 docker compose up -d
 docker compose exec garaged /garage status 
-docker compose exec garaged /garage layout assign -z dc1 -c 1G
+docker compose exec garaged /garage layout assign -z dc1 -c 1G <node_id>
 docker compose exec garaged /garage layout apply --version 1
 
 # create a bucket
