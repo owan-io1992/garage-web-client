@@ -70,19 +70,11 @@ export function AppLayout() {
               Garage Web Client
             </Text>
             <Text size="sm" c="dimmed">
-              v0.0.0
+              v{__APP_VERSION__}
             </Text>
           </Group>
 
           <Group>
-            <ActionIcon
-              component="a"
-              href="https://github.com/owan-io1992/garage-web-client"
-              target="_blank"
-              variant="subtle"
-            >
-              <IconBrandGithub size={20} />
-            </ActionIcon>
             <Select
               placeholder="Select Cluster"
               data={[
@@ -123,7 +115,15 @@ export function AppLayout() {
           onClick={() => navigate(`/node?clusterId=${activeClusterId}`)}
         />
 
-        <div style={{ marginTop: "auto" }}>
+        <div style={{ marginTop: "auto", display: "flex", gap: "8px" }}>
+          <ActionIcon
+            component="a"
+            href="https://github.com/owan-io1992/garage-web-client"
+            target="_blank"
+            variant="subtle"
+          >
+            <IconBrandGithub size={20} />
+          </ActionIcon>
           <ActionIcon onClick={toggleColorScheme} variant="subtle" size="lg">
             {colorScheme === "dark" ? (
               <IconSun size={20} />
