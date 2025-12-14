@@ -44,7 +44,7 @@ export function AppLayout() {
     if (value === "manage-clusters") {
       navigate("/manage-clusters");
     } else if (value) {
-      navigate(`/health?clusterId=${value}`);
+      navigate(`/cluster/health?clusterId=${value}`);
     }
   };
 
@@ -102,13 +102,17 @@ export function AppLayout() {
         >
           <NavLink
             label="status"
-            active={location.pathname === "/health"}
-            onClick={() => navigate(`/health?clusterId=${activeClusterId}`)}
+            active={location.pathname === "/cluster/health"}
+            onClick={() =>
+              navigate(`/cluster/health?clusterId=${activeClusterId}`)
+            }
           />
           <NavLink
             label="layout"
-            active={location.pathname === "/layout"}
-            onClick={() => navigate(`/layout?clusterId=${activeClusterId}`)}
+            active={location.pathname === "/cluster/layout/health"}
+            onClick={() =>
+              navigate(`/cluster/layout/health?clusterId=${activeClusterId}`)
+            }
           />
         </NavLink>
 
@@ -146,8 +150,10 @@ export function AppLayout() {
       </AppShell.Navbar>
 
       <AppShell.Main>
-        {location.pathname === "/health" && <ClusterStatusPage />}
-        {location.pathname === "/layout" && <ClusterLayoutPage />}
+        {location.pathname === "/cluster/health" && <ClusterStatusPage />}
+        {location.pathname === "/cluster/layout/health" && (
+          <ClusterLayoutPage />
+        )}
         {location.pathname === "/bucket" && <BucketPage />}
         {location.pathname === "/node" && <NodePage />}
       </AppShell.Main>

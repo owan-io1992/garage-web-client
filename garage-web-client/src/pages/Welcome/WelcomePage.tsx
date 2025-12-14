@@ -8,6 +8,7 @@ import {
   Stack,
   SimpleGrid,
   Alert,
+  Anchor,
 } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import { useClusterStore } from "../../store/clusterStore";
@@ -21,6 +22,11 @@ export function WelcomePage() {
     <Container size="sm" py={50}>
       <Stack gap="xl">
         <div style={{ textAlign: "center" }}>
+          <img
+            src="/garage-logo.svg"
+            alt="Garage Logo"
+            style={{ width: "300px", height: "300px", marginBottom: "20px" }}
+          />
           <Title order={1} mb="md">
             Welcome to Garage Web Client
           </Title>
@@ -28,6 +34,14 @@ export function WelcomePage() {
             Manage your interface for Garage S3 object store. Select a cluster
             to begin or connect a new one.
           </Text>
+          <Anchor
+            href="https://github.com/owan-io1992/garage-web-client"
+            target="_blank"
+            mt="sm"
+            display="block"
+          >
+            View on GitHub
+          </Anchor>
         </div>
 
         {clusters.length > 0 && (
@@ -39,7 +53,9 @@ export function WelcomePage() {
                 p="xl"
                 radius="md"
                 style={{ cursor: "pointer", transition: "border-color 0.2s" }}
-                onClick={() => navigate(`/health?clusterId=${cluster.id}`)}
+                onClick={() =>
+                  navigate(`/cluster/health?clusterId=${cluster.id}`)
+                }
                 className="cluster-card"
               >
                 <Group justify="space-between" mb="xs">

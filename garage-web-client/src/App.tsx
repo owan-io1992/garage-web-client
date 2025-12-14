@@ -16,8 +16,8 @@ function App() {
       <Route path="/manage-clusters" element={<ManageClustersPage />} />
 
       {/* Cluster Pages */}
-      <Route path="/health" element={<AppLayout />} />
-      <Route path="/layout" element={<AppLayout />} />
+      <Route path="/cluster/health" element={<AppLayout />} />
+      <Route path="/cluster/layout/health" element={<AppLayout />} />
       <Route path="/bucket" element={<AppLayout />} />
       <Route path="/node" element={<AppLayout />} />
 
