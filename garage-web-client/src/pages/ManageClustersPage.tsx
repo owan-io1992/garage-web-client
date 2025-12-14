@@ -13,8 +13,8 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useNavigate } from "react-router-dom";
-import type { ClusterConfig } from "../../store/clusterStore";
-import { useClusterStore } from "../../store/clusterStore";
+import type { ClusterConfig } from "../store/clusterStore";
+import { useClusterStore } from "../store/clusterStore";
 import { IconDeviceFloppy, IconTrash, IconServer } from "@tabler/icons-react";
 
 export function ManageClustersPage() {

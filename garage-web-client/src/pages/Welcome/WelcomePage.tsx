@@ -39,7 +39,7 @@ export function WelcomePage() {
                 p="xl"
                 radius="md"
                 style={{ cursor: "pointer", transition: "border-color 0.2s" }}
-                onClick={() => navigate(`/cluster/${cluster.id}/health`)}
+                onClick={() => navigate(`/health?clusterId=${cluster.id}`)}
                 className="cluster-card"
               >
                 <Group justify="space-between" mb="xs">

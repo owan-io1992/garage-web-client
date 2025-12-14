@@ -12,14 +12,14 @@ import {
   Alert,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { useClusterStore } from "../../../store/clusterStore";
+import { useClusterStore } from "../store/clusterStore";
 import {
   IconAlertCircle,
   IconCheck,
   IconServer,
   IconSlice,
 } from "@tabler/icons-react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 interface HealthData {
   status: string;
@@ -32,8 +32,9 @@ interface HealthData {
   [key: string]: unknown;
 }
 
-export function ClusterHealthPage() {
-  const { clusterId } = useParams();
+export function ClusterPage() {
+  const [searchParams] = useSearchParams();
+  const clusterId = searchParams.get("clusterId");
   const { clusters } = useClusterStore();
   const [data, setData] = useState<HealthData | null>(null);
   const [loading, setLoading] = useState(false);
