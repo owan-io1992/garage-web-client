@@ -19,7 +19,8 @@ import {
   IconDatabase,
   IconArchive,
 } from "@tabler/icons-react";
-import { ClusterPage } from "../../pages/Cluster";
+import { ClusterStatusPage } from "../../pages/Cluster/ClusterStatus";
+import { ClusterLayoutPage } from "../../pages/Cluster/ClusterLayout";
 import { BucketPage } from "../../pages/Bucket/BucketPage";
 import { NodePage } from "../../pages/Node/NodePage";
 import { useEffect } from "react";
@@ -97,9 +98,19 @@ export function AppLayout() {
         <NavLink
           label="Cluster"
           leftSection={<IconDatabase size={16} stroke={1.5} />}
-          active={location.pathname === "/health"}
-          onClick={() => navigate(`/health?clusterId=${activeClusterId}`)}
-        />
+          childrenOffset={28}
+        >
+          <NavLink
+            label="status"
+            active={location.pathname === "/health"}
+            onClick={() => navigate(`/health?clusterId=${activeClusterId}`)}
+          />
+          <NavLink
+            label="layout"
+            active={location.pathname === "/layout"}
+            onClick={() => navigate(`/layout?clusterId=${activeClusterId}`)}
+          />
+        </NavLink>
 
         <NavLink
           label="Bucket"
@@ -135,7 +146,8 @@ export function AppLayout() {
       </AppShell.Navbar>
 
       <AppShell.Main>
-        {location.pathname === "/health" && <ClusterPage />}
+        {location.pathname === "/health" && <ClusterStatusPage />}
+        {location.pathname === "/layout" && <ClusterLayoutPage />}
         {location.pathname === "/bucket" && <BucketPage />}
         {location.pathname === "/node" && <NodePage />}
       </AppShell.Main>

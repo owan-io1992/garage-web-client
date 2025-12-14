@@ -12,7 +12,7 @@ import {
   Alert,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { useClusterStore } from "../store/clusterStore";
+import { useClusterStore } from "../../store/clusterStore";
 import {
   IconAlertCircle,
   IconCheck,
@@ -32,7 +32,7 @@ interface HealthData {
   [key: string]: unknown;
 }
 
-export function ClusterPage() {
+export function ClusterStatusPage() {
   const [searchParams] = useSearchParams();
   const clusterId = searchParams.get("clusterId");
   const { clusters } = useClusterStore();

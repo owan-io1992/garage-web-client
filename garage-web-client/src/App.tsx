@@ -17,6 +17,7 @@ function App() {
 
       {/* Cluster Pages */}
       <Route path="/health" element={<AppLayout />} />
+      <Route path="/layout" element={<AppLayout />} />
       <Route path="/bucket" element={<AppLayout />} />
       <Route path="/node" element={<AppLayout />} />
 
