@@ -72,7 +72,11 @@ export function AppLayout() {
               fw={700}
               size="lg"
               onClick={() => navigate("/")}
-              style={{ cursor: "pointer", textDecoration: "none", color: "inherit" }}
+              style={{
+                cursor: "pointer",
+                textDecoration: "none",
+                color: "inherit",
+              }}
             >
               Garage Web Client
             </Anchor>
@@ -133,8 +137,17 @@ export function AppLayout() {
           onClick={() => navigate(`/node?clusterId=${activeClusterId}`)}
         />
 
-        <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "8px" }}>
-          <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+        <div
+          style={{
+            marginTop: "auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
+        >
+          <div
+            style={{ display: "flex", gap: "8px", justifyContent: "center" }}
+          >
             <ActionIcon
               component="a"
               href="https://github.com/owan-io1992/garage-web-client"
