@@ -6,6 +6,7 @@ import {
   Select,
   NavLink,
   ActionIcon,
+  Anchor,
   useMantineColorScheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -67,12 +68,14 @@ export function AppLayout() {
               hiddenFrom="sm"
               size="sm"
             />
-            <Text fw={700} size="lg">
+            <Anchor
+              fw={700}
+              size="lg"
+              onClick={() => navigate("/")}
+              style={{ cursor: "pointer", textDecoration: "none", color: "inherit" }}
+            >
               Garage Web Client
-            </Text>
-            <Text size="sm" c="dimmed">
-              v{__APP_VERSION__}
-            </Text>
+            </Anchor>
           </Group>
 
           <Group>
@@ -130,22 +133,27 @@ export function AppLayout() {
           onClick={() => navigate(`/node?clusterId=${activeClusterId}`)}
         />
 
-        <div style={{ marginTop: "auto", display: "flex", gap: "8px" }}>
-          <ActionIcon
-            component="a"
-            href="https://github.com/owan-io1992/garage-web-client"
-            target="_blank"
-            variant="subtle"
-          >
-            <IconBrandGithub size={20} />
-          </ActionIcon>
-          <ActionIcon onClick={toggleColorScheme} variant="subtle" size="lg">
-            {colorScheme === "dark" ? (
-              <IconSun size={20} />
-            ) : (
-              <IconMoon size={20} />
-            )}
-          </ActionIcon>
+        <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "8px" }}>
+          <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+            <ActionIcon
+              component="a"
+              href="https://github.com/owan-io1992/garage-web-client"
+              target="_blank"
+              variant="subtle"
+            >
+              <IconBrandGithub size={20} />
+            </ActionIcon>
+            <ActionIcon onClick={toggleColorScheme} variant="subtle" size="lg">
+              {colorScheme === "dark" ? (
+                <IconSun size={20} />
+              ) : (
+                <IconMoon size={20} />
+              )}
+            </ActionIcon>
+          </div>
+          <Text size="sm" c="dimmed" ta="center">
+            v{__APP_VERSION__}
+          </Text>
         </div>
       </AppShell.Navbar>
 
