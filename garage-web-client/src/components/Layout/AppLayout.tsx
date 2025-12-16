@@ -16,6 +16,7 @@ import {
   IconServer,
   IconSun,
   IconMoon,
+  IconBook,
   IconBrandGithub,
   IconDatabase,
   IconArchive,
@@ -34,6 +35,9 @@ export function AppLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+
+  // Check if we're on a cluster-related page
+  const isClusterPage = location.pathname.startsWith("/cluster/");
 
   useEffect(() => {
     if (clusterId && clusterId !== activeClusterId) {
@@ -106,6 +110,7 @@ export function AppLayout() {
           label="Cluster"
           leftSection={<IconDatabase size={16} stroke={1.5} />}
           childrenOffset={28}
+          defaultOpened={isClusterPage}
         >
           <NavLink
             label="status"
@@ -135,6 +140,14 @@ export function AppLayout() {
           leftSection={<IconServer size={16} stroke={1.5} />}
           active={location.pathname === "/node"}
           onClick={() => navigate(`/node?clusterId=${activeClusterId}`)}
+        />
+
+        <NavLink
+          label="Documentation"
+          leftSection={<IconBook size={16} stroke={1.5} />}
+          component="a"
+          href="https://garagehq.deuxfleurs.fr/documentation/quick-start/"
+          target="_blank"
         />
 
         <div

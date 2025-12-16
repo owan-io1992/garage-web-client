@@ -288,11 +288,12 @@ export function ClusterStatusPage() {
                       </Group>
                       <Text size="sm" c="dimmed">
                         ID: {node.id.slice(0, 16)}... | Version:{" "}
-                        {node.garageVersion} | Zone: {node.role.zone}
+                        {node.garageVersion} | Zone: {node.role?.zone || "N/A"}
                       </Text>
                       <Text size="sm" c="dimmed">
-                        Capacity: {(node.role.capacity / 1024 ** 3).toFixed(2)}{" "}
-                        GB | Data:{" "}
+                        Capacity:{" "}
+                        {((node.role?.capacity || 0) / 1024 ** 3).toFixed(2)} GB
+                        | Data:{" "}
                         {(
                           (node.dataPartition.total -
                             node.dataPartition.available) /
