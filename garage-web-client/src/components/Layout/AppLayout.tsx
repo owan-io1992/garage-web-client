@@ -20,10 +20,13 @@ import {
   IconBrandGithub,
   IconDatabase,
   IconArchive,
+  IconKey,
+  IconUsers,
 } from "@tabler/icons-react";
 import { ClusterStatusPage } from "../../pages/Cluster/ClusterStatus";
 import { ClusterLayoutPage } from "../../pages/Cluster/ClusterLayout";
 import { BucketPage } from "../../pages/Bucket/BucketPage";
+import { AccessKeysPage } from "../../pages/IAM/AccessKeysPage";
 import { NodePage } from "../../pages/Node/NodePage";
 import { useEffect } from "react";
 
@@ -38,6 +41,7 @@ export function AppLayout() {
 
   // Check if we're on a cluster-related page
   const isClusterPage = location.pathname.startsWith("/cluster/");
+  const isIAMPage = location.pathname.startsWith("/iam/");
 
   useEffect(() => {
     if (clusterId && clusterId !== activeClusterId) {
@@ -136,6 +140,20 @@ export function AppLayout() {
         />
 
         <NavLink
+          label="IAM"
+          leftSection={<IconUsers size={16} stroke={1.5} />}
+          childrenOffset={28}
+          defaultOpened={isIAMPage}
+        >
+          <NavLink
+            label="Access Keys"
+            leftSection={<IconKey size={14} stroke={1.5} />}
+            active={location.pathname === "/iam/keys"}
+            onClick={() => navigate(`/iam/keys?clusterId=${activeClusterId}`)}
+          />
+        </NavLink>
+
+        <NavLink
           label="Node"
           leftSection={<IconServer size={16} stroke={1.5} />}
           active={location.pathname === "/node"}
@@ -187,6 +205,7 @@ export function AppLayout() {
         {location.pathname === "/cluster/status" && <ClusterStatusPage />}
         {location.pathname === "/cluster/layout" && <ClusterLayoutPage />}
         {location.pathname === "/bucket" && <BucketPage />}
+        {location.pathname === "/iam/keys" && <AccessKeysPage />}
         {location.pathname === "/node" && <NodePage />}
       </AppShell.Main>
     </AppShell>

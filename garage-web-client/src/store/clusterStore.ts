@@ -6,6 +6,9 @@ export interface ClusterConfig {
   name: string;
   endpoint: string;
   token: string;
+  s3Endpoint?: string;
+  s3AccessKey?: string;
+  s3SecretKey?: string;
 }
 
 interface ClusterState {

@@ -15,7 +15,7 @@ root_domain = ".s3.garage.localhost"
 
 [s3_web]
 bind_addr = "[::]:3902"
-root_domain = ".web.garage.localhost"
+root_domain = ".s3.garage.localhost"
 index = "index.html"
 
 [k2v_api]

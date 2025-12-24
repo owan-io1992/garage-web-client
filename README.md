@@ -3,6 +3,8 @@ this project is a web client for [garage](https://garagehq.deuxfleurs.fr), host 
 
 The application runs 100% in the browser, so you can safely access any garage instance from there.
 
+🏗️ this project still working, please use it with caution.  
+
 # Development
 
 ## requirements

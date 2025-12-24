@@ -19,6 +19,7 @@ function App() {
       <Route path="/cluster/status" element={<AppLayout />} />
       <Route path="/cluster/layout" element={<AppLayout />} />
       <Route path="/bucket" element={<AppLayout />} />
+      <Route path="/iam/keys" element={<AppLayout />} />
       <Route path="/node" element={<AppLayout />} />
 
       {/* Catch all redirect to Welcome */}
